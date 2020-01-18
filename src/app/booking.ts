@@ -1,10 +1,10 @@
 export class Booking {
 
-    name: string;
-    telephoneNumber: number;
+    Name: string;
+    TelephoneNumber: number;
     Email: string;
     Guests: number;
-    Date: Date;
+    Date: number;
     Duration: number;
     Outside: boolean;
 

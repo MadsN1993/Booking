@@ -1,1 +1,25 @@
-<p>modal works!</p>
+<ng-template #content let-modal>
+
+    <!-- modal er en del af ng-template som er root elementet og er sat ved let-modal -->
+    <!-- dismiss(reason: any) => void -->
+    <!-- Dismisses the modal with an optional reason value. -->
+    <!-- The NgbModalRef.result promise will be rejected with the provided value. -->
+    <div class="modal-header">
+        <h4 class="modal-title" id="modal-basic-title">Test Modal</h4>
+        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+            <span aria-hidden="true">&times;</span> <!-- Laver krydset i hjørnet -->
+        </button>
+    </div>
+
+
+    <h1>Test</h1>
+
+    <div class="modal-footer">
+        <!-- modal er en del af ng-template som er root elementet og er sat ved let-modal -->
+        <!-- close(result: any) => void -->
+        <!-- Closes the modal with an optional result value -->
+        <!-- The NgbMobalRef.result promise will be resolved with the provided value. -->
+        <button type="button" class="btn btn-outline-dark" (click)="modal.close('Add click')">Test B</button>
+    </div>
+
+</ng-template>

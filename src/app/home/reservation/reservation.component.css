@@ -1,0 +1,22 @@
+/* https://stackoverflow.com/questions/4646708/css-how-to-get-scrollbars-for-div-inside-container-of-fixed-height */
+/* http://jsfiddle.net/ftkbL/1/ */
+.fixedHeightContainer{
+    height: 240px;
+    width: 100%; 
+  }
+  
+.content{
+    height: 100%;
+    width: 100%;
+    overflow: auto;
+  }
+
+  .clickable {
+    cursor: pointer;
+  }
+
+tr:hover.clickable {
+    background-color: gray;
+}
+  
+ 
