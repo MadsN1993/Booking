@@ -1,0 +1,8 @@
+ul {
+    list-style-type: none;
+    columns: 2;
+    column-gap: 20px;
+    column-count: 2;
+    padding: 0%;
+    margin-top: 8px;
+}
