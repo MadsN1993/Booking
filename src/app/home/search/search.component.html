@@ -1,1 +1,22 @@
-<p>search works!</p>
+<div>
+    <ul>
+        <li>
+            <span>From:</span>
+            <ngb-timepicker [(ngModel)] = "fromTime" [spinners]="fromSpinners" [size]="fromSize"></ngb-timepicker>
+        </li>
+        <li>
+            <span>To:</span>
+            <ngb-timepicker [(ngModel)] = "toTime" [spinners]="toSpinners" [size]="toSize"></ngb-timepicker>   
+        </li>
+    </ul>
+    <div>
+        <input type="checkbox" id=nowFilter>
+        <label for="nowFilter">
+            Now
+        </label>
+    </div>
+    <div>
+        <input type="textfield" id=textFilter placeholder="Search for guests" style="margin-bottom: 8px;" [(ngModel)] ="searchText">
+    </div>
+</div>
+
