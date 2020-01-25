@@ -1,7 +1,7 @@
 /* https://stackoverflow.com/questions/4646708/css-how-to-get-scrollbars-for-div-inside-container-of-fixed-height */
 /* http://jsfiddle.net/ftkbL/1/ */
 .fixedHeightContainer{
-    height: 240px;
+    height: 600px;
     width: 100%; 
   }
   
@@ -16,7 +16,35 @@
   }
 
 tr:hover.clickable {
-    background-color: gray;
+    background-color: #23272B;
 }
   
+.no-padding{
+  padding-left: 0px;
+  padding-right: 0px;
+}
+
+.no-border-radius{
+  border-radius: 0px;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #9A9DA0; 
+}
  
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #343A40; 
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555; 
+}
+

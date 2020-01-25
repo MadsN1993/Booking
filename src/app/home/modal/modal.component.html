@@ -1,25 +1,222 @@
+<div>
+    <app-reservation (messageEvent)="receiveMessage($event)"></app-reservation>
+    <div [hidden]="true" #myDiv (click)="open(content)"></div>
+    <div [hidden]="true" #myDiv2 (click)="openN(content2)"></div>
+
+</div>
+
 <ng-template #content let-modal>
 
-    <!-- modal er en del af ng-template som er root elementet og er sat ved let-modal -->
-    <!-- dismiss(reason: any) => void -->
-    <!-- Dismisses the modal with an optional reason value. -->
-    <!-- The NgbModalRef.result promise will be rejected with the provided value. -->
     <div class="modal-header">
-        <h4 class="modal-title" id="modal-basic-title">Test Modal</h4>
+        <h4 class="modal-title" id="modal-basic-title">Edit booking</h4>
         <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
             <span aria-hidden="true">&times;</span> <!-- Laver krydset i hjørnet -->
         </button>
     </div>
 
+    <div class="modal-body">
 
-    <h1>Test</h1>
+        <form #bookingForm="ngForm">
+            <div class="form-group row justify-content-center">
+                <div class="col-8">
+                    <label for="bookingName">Name:</label>
+                    <input required [(ngModel)]="booking.Name" name="bookingName" type="text" class="form-control"
+                        id="bookingName" #bookingName="ngModel">
+                    <div [hidden]="bookingName.valid || bookingName.pristine" class="alert alert-danger">
+                        <!-- "pristine" means the user hasn't changed the value since it was displayed in this form.-->
+                        Name is required
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group row justify-content-center">
+                <div class="col-8">
+                    <label for="bookingTelephone">Telephone:</label>
+                    <input required [(ngModel)]="booking.Telephone" name="bookingTelephone" type="number"
+                        class="form-control" id="bookingTelephone" #bookingTelephone="ngModel">
+                    <div [hidden]="bookingTelephone.valid || bookingTelephone.pristine" class="alert alert-danger">
+                        <!-- "pristine" means the user hasn't changed the value since it was displayed in this form.-->
+                        Telephone is required
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group row justify-content-center">
+                <div class="col-8">
+                    <label for="bookingEmail">Email:</label>
+                    <input required [(ngModel)]="booking.Email" name="bookingEmail" type="email" class="form-control"
+                        id="bookingEmail" #bookingEmail="ngModel">
+                    <div [hidden]="bookingEmail.valid || bookingEmail.pristine" class="alert alert-danger">
+                        <!-- "pristine" means the user hasn't changed the value since it was displayed in this form.-->
+                        Email is required
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group row justify-content-center">
+                <div class="col-8">
+                    <label for="bookingGuests">Guests:</label>
+                    <input required [(ngModel)]="booking.Guests" name="bookingGuests" type="number" class="form-control"
+                        id="bookingGuests" #bookingGuests="ngModel">
+                    <div [hidden]="bookingGuests.valid || bookingGuests.pristine" class="alert alert-danger">
+                        <!-- "pristine" means the user hasn't changed the value since it was displayed in this form.-->
+                        Guests is required
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group row justify-content-center">
+                <div class="col-8">
+                    <label for="bookingDate">Date:</label>
+                    <input required [(ngModel)]="booking.Date" name="bookingDate" type="date" class="form-control"
+                        id="bookingDate" #bookingDate="ngModel">
+                    <div [hidden]="bookingDate.valid || bookingDate.pristine" class="alert alert-danger">
+                        <!-- "pristine" means the user hasn't changed the value since it was displayed in this form.-->
+                        Date is required
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group row justify-content-center">
+                <div class="col-8">
+                    <label for="bookingDuration">Duration:</label>
+                    <input required [(ngModel)]="booking.Duration" name="bookingDuration" type="number"
+                        class="form-control" id="bookingDuration" #bookingDuration="ngModel">
+                    <div [hidden]="bookingDuration.valid || bookingDuration.pristine" class="alert alert-danger">
+                        <!-- "pristine" means the user hasn't changed the value since it was displayed in this form.-->
+                        Duration is required
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group row justify-content-center">
+                <div class="col-4 text-center">
+                    <input [(ngModel)]="booking.Outside" name="bookingOutside" type="checkbox" class="form-check-input"
+                        id="bookingOutside" #bookingOutside="ngModel">
+                    <label class="form-check-label" for="bookingOutside">Outside:</label>
+                </div>
+            </div>
+        </form>
+    </div>
 
     <div class="modal-footer">
-        <!-- modal er en del af ng-template som er root elementet og er sat ved let-modal -->
-        <!-- close(result: any) => void -->
-        <!-- Closes the modal with an optional result value -->
-        <!-- The NgbMobalRef.result promise will be resolved with the provided value. -->
-        <button type="button" class="btn btn-outline-dark" (click)="modal.close('Add click')">Test B</button>
+
+        <div class="d-flex row align-content-center">
+            <div class="col text-center">
+                <button type="button" class="btn btn-outline-dark mr-1"
+                    (click)="modal.close('Delete')">Delete</button>
+                <button type="button" class="btn btn-outline-dark mr-1" (click)="modal.close('Edit')">Edit</button>
+                <button type="button" class="btn btn-outline-dark" (click)="modal.close('Cancel')">Cancel</button>
+            </div>
+        </div>
+
+    </div>
+
+</ng-template>
+
+<ng-template #content2 let-modal>
+
+    <div class="modal-header">
+        <h4 class="modal-title" id="modal-basic-title">Add booking</h4>
+        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+            <span aria-hidden="true">&times;</span> <!-- Laver krydset i hjørnet -->
+        </button>
+    </div>
+
+    <div class="modal-body">
+
+        <form #bookingForm="ngForm">
+            <div class="form-group row justify-content-center">
+                <div class="col-8">
+                    <label for="bookingName">Name:</label>
+                    <input required [(ngModel)]="booking.Name" name="bookingName" type="text" class="form-control"
+                        id="bookingName" #bookingName="ngModel">
+                    <div [hidden]="bookingName.valid || bookingName.pristine" class="alert alert-danger">
+                        <!-- "pristine" means the user hasn't changed the value since it was displayed in this form.-->
+                        Name is required
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group row justify-content-center">
+                <div class="col-8">
+                    <label for="bookingTelephone">Telephone:</label>
+                    <input required [(ngModel)]="booking.Telephone" name="bookingTelephone" type="number"
+                        class="form-control" id="bookingTelephone" #bookingTelephone="ngModel">
+                    <div [hidden]="bookingTelephone.valid || bookingTelephone.pristine" class="alert alert-danger">
+                        <!-- "pristine" means the user hasn't changed the value since it was displayed in this form.-->
+                        Telephone is required
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group row justify-content-center">
+                <div class="col-8">
+                    <label for="bookingEmail">Email:</label>
+                    <input required [(ngModel)]="booking.Email" name="bookingEmail" type="email" class="form-control"
+                        id="bookingEmail" #bookingEmail="ngModel">
+                    <div [hidden]="bookingEmail.valid || bookingEmail.pristine" class="alert alert-danger">
+                        <!-- "pristine" means the user hasn't changed the value since it was displayed in this form.-->
+                        Email is required
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group row justify-content-center">
+                <div class="col-8">
+                    <label for="bookingGuests">Guests:</label>
+                    <input required [(ngModel)]="booking.Guests" name="bookingGuests" type="number" class="form-control"
+                        id="bookingGuests" #bookingGuests="ngModel">
+                    <div [hidden]="bookingGuests.valid || bookingGuests.pristine" class="alert alert-danger">
+                        <!-- "pristine" means the user hasn't changed the value since it was displayed in this form.-->
+                        Guests is required
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group row justify-content-center">
+                <div class="col-8">
+                    <label for="bookingDate">Date:</label>
+                    <input required [(ngModel)]="booking.Date" name="bookingDate" type="date" class="form-control"
+                        id="bookingDate" #bookingDate="ngModel">
+                    <div [hidden]="bookingDate.valid || bookingDate.pristine" class="alert alert-danger">
+                        <!-- "pristine" means the user hasn't changed the value since it was displayed in this form.-->
+                        Date is required
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group row justify-content-center">
+                <div class="col-8">
+                    <label for="bookingDuration">Duration:</label>
+                    <input required [(ngModel)]="booking.Duration" name="bookingDuration" type="number"
+                        class="form-control" id="bookingDuration" #bookingDuration="ngModel">
+                    <div [hidden]="bookingDuration.valid || bookingDuration.pristine" class="alert alert-danger">
+                        <!-- "pristine" means the user hasn't changed the value since it was displayed in this form.-->
+                        Duration is required
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group row justify-content-center">
+                <div class="col-4 text-center">
+                    <input [(ngModel)]="booking.Outside" name="bookingOutside" type="checkbox" class="form-check-input"
+                        id="bookingOutside" #bookingOutside="ngModel">
+                    <label class="form-check-label" for="bookingOutside">Outside:</label>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <div class="modal-footer">
+
+        <div class="d-flex row align-content-center">
+            <div class="col text-center">
+                <button type="button" class="btn btn-outline-dark mr-1" (click)="modal.close('Add')">Add</button>
+                <button type="button" class="btn btn-outline-dark" (click)="modal.close('Cancel')">Cancel</button>
+            </div>
+        </div>
+
     </div>
 
 </ng-template>

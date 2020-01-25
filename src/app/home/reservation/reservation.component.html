@@ -1,5 +1,11 @@
-<div class="row justify-content-center">
-    <div class=" col-4 fixedHeightContainer">
+<div class="row">
+    <div class="col-9 no-padding">
+        <app-table-overview></app-table-overview>
+    </div>
+
+    <div class="col fixedHeightContainer no-padding">
+
+        <button type="button" (click)="NewBooking()" class="btn btn-dark btn-block no-border-radius">New Booking</button>
         <div class="content">
             <table class="table table-dark">
                 <thead>
@@ -11,7 +17,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr (click)="OpenBooking(booking, content)" class="clickable" *ngFor="let booking of bookings">
+                    <tr (click)="OpenBooking(booking)" class="clickable" *ngFor="let booking of bookings">
                         <td>{{ booking.Name }}</td>
                         <td>{{ booking.Duration }}</td>
                         <td>{{ booking.Guests }}</td>
@@ -20,31 +26,6 @@
                 </tbody>
             </table>
         </div>
-    </div>
+    </div> 
+    
 </div>
-
-<ng-template #content let-modal>
-
-    <!-- modal er en del af ng-template som er root elementet og er sat ved let-modal -->
-    <!-- dismiss(reason: any) => void -->
-    <!-- Dismisses the modal with an optional reason value. -->
-    <!-- The NgbModalRef.result promise will be rejected with the provided value. -->
-    <div class="modal-header">
-        <h4 class="modal-title" id="modal-basic-title">Test Modal</h4>
-        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
-            <span aria-hidden="true">&times;</span> <!-- Laver krydset i hjørnet -->
-        </button>
-    </div>
-
-
-    <h1>Test</h1>
-
-    <div class="modal-footer">
-        <!-- modal er en del af ng-template som er root elementet og er sat ved let-modal -->
-        <!-- close(result: any) => void -->
-        <!-- Closes the modal with an optional result value -->
-        <!-- The NgbMobalRef.result promise will be resolved with the provided value. -->
-        <button type="button" class="btn btn-outline-dark" (click)="modal.close('Add click')">Test B</button>
-    </div>
-
-</ng-template>

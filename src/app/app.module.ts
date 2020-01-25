@@ -14,6 +14,7 @@ import { TableOverviewComponent } from './home/table-overview/table-overview.com
 import { ReservationComponent } from './home/reservation/reservation.component';
 import { ModalComponent } from './home/modal/modal.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,

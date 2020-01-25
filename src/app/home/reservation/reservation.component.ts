@@ -1,8 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { Booking } from '../../booking'
 import { BookingsService } from '../bookings.service'
-import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
-
 
 
 @Component({
@@ -10,28 +8,34 @@ import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
   templateUrl: './reservation.component.html',
   styleUrls: ['./reservation.component.css']
 })
-export class ReservationComponent implements OnInit {
 
-  bookings : Booking[] = [];
+export class ReservationComponent implements OnInit  {
+  
+  test : string = "Fra reservationComponent"
+  bookings: Booking[] = [];
+
+
+  @Output() messageEvent = new EventEmitter<Booking>();
 
   constructor(
-    private bookingService : BookingsService,
-    private modalService: NgbModal
-    ) { }
+    private bookingService: BookingsService,
+  ) { }
+
+
+  NewBooking() {
+    this.messageEvent.emit();
+  }
+
+  OpenBooking(booking: Booking) {
+    this.messageEvent.emit(booking);
+  }
 
   ngOnInit() {
     this.bookings = this.bookingService.GetBookings();
-  }
-  
+    console.log("OnInit");
 
-  open(content) {
-    this.modalService.open(content, { ariaLabelledBy: 'modal-basic-title' , size : "lg"});
   }
 
 
-
-  OpenBooking(booking : Booking, content){
-    this.open(content);
-  }
 
 }
