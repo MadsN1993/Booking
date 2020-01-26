@@ -9,6 +9,7 @@
     height: 100%;
     width: 100%;
     overflow: auto;
+    background-color: #343A40;
   }
 
   .clickable {
@@ -30,7 +31,7 @@ tr:hover.clickable {
 
 /* width */
 ::-webkit-scrollbar {
-  width: 10px;
+  width: 15px;
 }
 
 /* Track */

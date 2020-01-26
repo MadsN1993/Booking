@@ -1,0 +1,8 @@
+.no-padding{
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+.clickable {
+    cursor: pointer;
+  }

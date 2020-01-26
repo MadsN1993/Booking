@@ -13,6 +13,9 @@ import { FilteringComponent } from './home/filtering/filtering.component';
 import { TableOverviewComponent } from './home/table-overview/table-overview.component';
 import { ReservationComponent } from './home/reservation/reservation.component';
 import { ModalComponent } from './home/modal/modal.component';
+import { SetupComponent } from './setup/setup/setup.component';
+import { ToolbarComponent } from './setup/toolbar/toolbar.component';
+import { DragAndDropComponent } from './setup/drag-and-drop/drag-and-drop.component';
 
 
 @NgModule({
@@ -25,7 +28,10 @@ import { ModalComponent } from './home/modal/modal.component';
     FilteringComponent,
     TableOverviewComponent,
     ReservationComponent,
-    ModalComponent
+    ModalComponent,
+    SetupComponent,
+    ToolbarComponent,
+    DragAndDropComponent
   ],
   imports: [
     BrowserModule,
