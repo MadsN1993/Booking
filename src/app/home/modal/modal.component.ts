@@ -26,62 +26,62 @@ export class ModalComponent implements OnInit, AfterViewInit {
   ngOnInit() {
   }
 
-  openN(content2) {
-    this.modalService.open(content2, { ariaLabelledBy: 'modal-basic-title', size: "lg" }).result.then((result) => {
+  // openN(content2) {
+  //   this.modalService.open(content2, { ariaLabelledBy: 'modal-basic-title', size: "lg" }).result.then((result) => {
 
-      switch (result) {
-        case "Cancel": {
-          console.log("Cancel")
-          break;
-        }
-        case "Add": {
-          this.bookingService.AddBooking(this.booking);
-          break;
-        }
-        default: {
-          console.log(result);
-          break;
-        }
-      }
+  //     switch (result) {
+  //       case "Cancel": {
+  //         console.log("Cancel")
+  //         break;
+  //       }
+  //       case "Add": {
+  //         this.bookingService.AddBooking(this.booking);
+  //         break;
+  //       }
+  //       default: {
+  //         console.log(result);
+  //         break;
+  //       }
+  //     }
+
+  //     //Metode 1
+  //     // console.log(result);
+  //   }, (reason) => {
+  //     console.log(reason);
+  //     console.log("reason");
+  //   });
+  // };
+
+
+  // open(content) {
+  //   this.modalService.open(content, { ariaLabelledBy: 'modal-basic-title', size: "lg" }).result.then((result) => {
+
+  //     switch (result) {
+  //       case "Delete": {
+  //         this.bookingService.DeleteBooking(this.booking);
+  //         break;
+  //       }
+  //       case "Cancel": {
+  //         console.log("Cancel")
+  //         break;
+  //       }
+  //       case "Edit": {
+  //         this.bookingService.EditBooking(this.booking);
+  //         break;
+  //       }
+  //       default: {
+  //         console.log(result);
+  //         break;
+  //       }
+  //     }
 
       //Metode 1
       // console.log(result);
-    }, (reason) => {
-      console.log(reason);
-      console.log("reason");
-    });
-  };
-
-
-  open(content) {
-    this.modalService.open(content, { ariaLabelledBy: 'modal-basic-title', size: "lg" }).result.then((result) => {
-
-      switch (result) {
-        case "Delete": {
-          this.bookingService.DeleteBooking(this.booking);
-          break;
-        }
-        case "Cancel": {
-          console.log("Cancel")
-          break;
-        }
-        case "Edit": {
-          this.bookingService.EditBooking(this.booking);
-          break;
-        }
-        default: {
-          console.log(result);
-          break;
-        }
-      }
-
-      //Metode 1
-      // console.log(result);
-    }, (reason) => {
-      console.log(reason);
-      console.log("reason");
-    });
-  };
+  //   }, (reason) => {
+  //     console.log(reason);
+  //     console.log("reason");
+  //   });
+  // };
 
 
   // receiveMessage($event) {
@@ -90,34 +90,34 @@ export class ModalComponent implements OnInit, AfterViewInit {
   //   this.myDiv.nativeElement.click();
   // }
 
-  receiveMessage($event) {
+  // receiveMessage($event) {
 
-    if ($event === undefined) {
-      this.booking = new Booking();
-      this.booking.Id =  this.bookingService.GetId();
-      this.myDiv2.nativeElement.click();
+  //   if ($event === undefined) {
+  //     this.booking = new Booking();
+  //     this.booking.Id =  this.bookingService.GetId();
+  //     this.myDiv2.nativeElement.click();
 
-    }
-    else {
-      this.booking = new Booking();
-      this.booking.Id = $event.Id;
-      this.booking.Name = $event.Name;
-      this.booking.Telephone = $event.Telephone;
-      this.booking.Email = $event.Email;
-      this.booking.Guests = $event.Guests;
-      // this.booking.Date = $event.Date;
-      this.booking.Duration = $event.Duration;
-      this.booking.Outside = $event.Outside;
-      this.myDiv.nativeElement.click();
-    }
+  //   }
+  //   else {
+  //     this.booking = new Booking();
+  //     this.booking.Id = $event.Id;
+  //     this.booking.Name = $event.Name;
+  //     this.booking.Telephone = $event.Telephone;
+  //     this.booking.Email = $event.Email;
+  //     this.booking.Guests = $event.Guests;
+  //     // this.booking.Date = $event.Date;
+  //     this.booking.Duration = $event.Duration;
+  //     this.booking.Outside = $event.Outside;
+  //     this.myDiv.nativeElement.click();
+  //   }
   
-  }
+  // }
 
 
 
   ngAfterViewInit() {
     // this.booking = new Booking();
-    console.log(this.myDiv);
+    // console.log(this.myDiv);
   }
 
 }

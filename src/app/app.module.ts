@@ -20,6 +20,8 @@ import { LoginComponent } from './login//login/login.component';
 import { RegisterComponent } from './login//register//register.component';
 import { AuthenticationService } from './login/authentication.service';
 import { AuthGuard } from './auth.guard';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { DragDropModule } from '@angular/cdk/drag-drop';
 
 
 @NgModule({
@@ -43,7 +45,9 @@ import { AuthGuard } from './auth.guard';
     BrowserModule,
     AppRoutingModule,
     NgbModule,
-    FormsModule
+    FormsModule,
+    BrowserAnimationsModule,
+    DragDropModule
   ],
   providers: [AuthenticationService, AuthGuard],
   bootstrap: [AppComponent]
