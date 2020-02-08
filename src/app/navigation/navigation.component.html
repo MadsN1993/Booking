@@ -23,10 +23,13 @@
         <ul class="navbar-nav ml-auto">
           <li class="nav-item">
             <!-- Step 4: Close the menu when a link is clicked. -->
-            <a class="nav-link" [routerLink]="'.'" (click)="isMenuCollapsed = true">Register</a>
+            <a class="nav-link" *ngIf="!_authService.loggedIn()" routerLink="/register" (click)="isMenuCollapsed = true">Register</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" [routerLink]="'.'" (click)="isMenuCollapsed = true">Login</a>
+            <a class="nav-link" *ngIf="!_authService.loggedIn()" routerLink="/login" (click)="isMenuCollapsed = true">Login</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" *ngIf="_authService.loggedIn()" (click)="_authService.logout()">Logout</a>
           </li>
         </ul>
       </div>

@@ -16,6 +16,10 @@ import { ModalComponent } from './home/modal/modal.component';
 import { SetupComponent } from './setup/setup/setup.component';
 import { ToolbarComponent } from './setup/toolbar/toolbar.component';
 import { DragAndDropComponent } from './setup/drag-and-drop/drag-and-drop.component';
+import { LoginComponent } from './login//login/login.component';
+import { RegisterComponent } from './login//register//register.component';
+import { AuthenticationService } from './login/authentication.service';
+import { AuthGuard } from './auth.guard';
 
 
 @NgModule({
@@ -31,7 +35,9 @@ import { DragAndDropComponent } from './setup/drag-and-drop/drag-and-drop.compon
     ModalComponent,
     SetupComponent,
     ToolbarComponent,
-    DragAndDropComponent
+    DragAndDropComponent,
+    LoginComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
@@ -39,7 +45,7 @@ import { DragAndDropComponent } from './setup/drag-and-drop/drag-and-drop.compon
     NgbModule,
     FormsModule
   ],
-  providers: [],
+  providers: [AuthenticationService, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
