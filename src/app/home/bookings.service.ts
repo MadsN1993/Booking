@@ -22,7 +22,7 @@ export class BookingsService {
     { Id: 12, Name: "testName", Telephone: 12121212, Email: "tt@hotmail.com", Guests: 12, Date: Date.now(), Duration: 60, Outside:true },
     { Id: 13, Name: "testName", Telephone: 13131313, Email: "tt@hotmail.com", Guests: 13, Date: Date.now(), Duration: 60, Outside:true },
     { Id: 14, Name: "testName", Telephone: 14141414, Email: "tt@hotmail.com", Guests: 14, Date: Date.now(), Duration: 60, Outside:true },
-    { Id: 15, Name: "testName", Telephone: 15151515, Email: "tt@hotmail.com", Guests: 16, Date: Date.now(), Duration: 60, Outside:true }
+    { Id: 15, Name: "testName", Telephone: 15151515, Email: "tt@hotmail.com", Guests: 15, Date: Date.now(), Duration: 60, Outside:true }
   ]
 
 

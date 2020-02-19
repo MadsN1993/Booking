@@ -1,14 +1,11 @@
 .boundary{
-    background-color: aqua;
+
 }
 
 .vl {
-    border-left: 3px solid green;
     height: 100%;
     position: absolute;
-    left: 10%;
-    margin-left: -3px;
-    top: 0;
+    border-left-color: blue;
   }
 
 .no-padding{
@@ -22,10 +19,18 @@
 
 .tableOnePosition{
     position: absolute;
-    left: 2.2%;
-    top: 2.2%;
-    width: 60px;
-    height: 60px;
-    background-color: gray
+    background-color: #BA8B67;
+    border-color: black;
+    border-style: solid; 
+    border-width: 2px;
+    box-sizing: border-box;
+    text-align: center; 
+    vertical-align: middle;
+    user-select: none;
 }
 
+
+
+.red {
+    border-left: 5px solid #a94442; /* red */
+  }

@@ -2,34 +2,32 @@
 
     <div #container class="col no-padding" id="containerId">
 
-        <div #verticalLine class="vl"></div>
+        <div class="vl" id="verticalLine" ></div>
 
-        <div #t0="ngbTooltip" [hidden]="tBool[0]" id="t0" class="tableOnePosition" (cdkDragStarted)="started($event)" (cdkDragEnded)="ended($event)" cdkDrag cdkDragBoundary=".boundary" [cdkDragFreeDragPosition]="startPositions[0]" placement="right" [ngbTooltip]="tooltipContentRef" triggers="manual" (mouseover)="showTooltip(t0)" (mouseout)="closeToolTip(t0)" (mousedown)="closeToolTip(t0)" (dblclick)="edit(t0,content)">1</div>
-        <div #t1="ngbTooltip" [hidden]="tBool[1]" id="t1" class="tableOnePosition" (cdkDragStarted)="started($event)" (cdkDragEnded)="ended($event)" cdkDrag cdkDragBoundary=".boundary" [cdkDragFreeDragPosition]="startPositions[1]" placement="right" [ngbTooltip]="tooltipContentRef" triggers="manual" (mouseover)="showTooltip(t1)" (mouseout)="closeToolTip(t1)" (mousedown)="closeToolTip(t1)" (dblclick)="edit(t1,content)">2</div>
-        <div #t2="ngbTooltip" [hidden]="tBool[2]" id="t2" class="tableOnePosition" (cdkDragStarted)="started($event)" (cdkDragEnded)="ended($event)" cdkDrag cdkDragBoundary=".boundary" [cdkDragFreeDragPosition]="startPositions[2]" placement="right" [ngbTooltip]="tooltipContentRef" triggers="manual" (mouseover)="showTooltip(t2)" (mouseout)="closeToolTip(t2)" (mousedown)="closeToolTip(t2)" (dblclick)="edit(t2,content)">3</div>
-        <div #t3="ngbTooltip" [hidden]="tBool[3]" id="t3" class="tableOnePosition" (cdkDragStarted)="started($event)" (cdkDragEnded)="ended($event)" cdkDrag cdkDragBoundary=".boundary" [cdkDragFreeDragPosition]="startPositions[3]" placement="right" [ngbTooltip]="tooltipContentRef" triggers="manual" (mouseover)="showTooltip(t3)" (mouseout)="closeToolTip(t3)" (mousedown)="closeToolTip(t3)" (dblclick)="edit(t3,content)">4</div>
-        <div #t4="ngbTooltip" [hidden]="tBool[4]" id="t4" class="tableOnePosition" (cdkDragStarted)="started($event)" (cdkDragEnded)="ended($event)" cdkDrag cdkDragBoundary=".boundary" [cdkDragFreeDragPosition]="startPositions[4]" placement="right" [ngbTooltip]="tooltipContentRef" triggers="manual" (mouseover)="showTooltip(t4)" (mouseout)="closeToolTip(t4)" (mousedown)="closeToolTip(t4)" (dblclick)="edit(t4,content)">5</div>
-        <div #t5="ngbTooltip" [hidden]="tBool[5]" id="t5" class="tableOnePosition" (cdkDragStarted)="started($event)" (cdkDragEnded)="ended($event)" cdkDrag cdkDragBoundary=".boundary" [cdkDragFreeDragPosition]="startPositions[5]" placement="right" [ngbTooltip]="tooltipContentRef" triggers="manual" (mouseover)="showTooltip(t5)" (mouseout)="closeToolTip(t5)" (mousedown)="closeToolTip(t5)" (dblclick)="edit(t5,content)">6</div>
-    
+        <div #t0="ngbTooltip" [hidden]="tBool[0]" id="t0" class="tableOnePosition" (cdkDragStarted)="started($event)" (cdkDragEnded)="ended($event)" cdkDrag cdkDragBoundary=".boundary" [cdkDragFreeDragPosition]="startPositions[0]" placement="right" [ngbTooltip]="tooltipContentRef" triggers="manual" (mouseover)="showTooltip(t0)" (mouseout)="closeToolTip(t0)" (mousedown)="closeToolTip(t0)" (dblclick)="edit(t0,content)"></div>
+        <div #t1="ngbTooltip" [hidden]="tBool[1]" id="t1" class="tableOnePosition" (cdkDragStarted)="started($event)" (cdkDragEnded)="ended($event)" cdkDrag cdkDragBoundary=".boundary" [cdkDragFreeDragPosition]="startPositions[1]" placement="right" [ngbTooltip]="tooltipContentRef" triggers="manual" (mouseover)="showTooltip(t1)" (mouseout)="closeToolTip(t1)" (mousedown)="closeToolTip(t1)" (dblclick)="edit(t1,content)"></div>
+        <div #t2="ngbTooltip" [hidden]="tBool[2]" id="t2" class="tableOnePosition" (cdkDragStarted)="started($event)" (cdkDragEnded)="ended($event)" cdkDrag cdkDragBoundary=".boundary" [cdkDragFreeDragPosition]="startPositions[2]" placement="right" [ngbTooltip]="tooltipContentRef" triggers="manual" (mouseover)="showTooltip(t2)" (mouseout)="closeToolTip(t2)" (mousedown)="closeToolTip(t2)" (dblclick)="edit(t2,content)"></div>
+        <div #t3="ngbTooltip" [hidden]="tBool[3]" id="t3" class="tableOnePosition" (cdkDragStarted)="started($event)" (cdkDragEnded)="ended($event)" cdkDrag cdkDragBoundary=".boundary" [cdkDragFreeDragPosition]="startPositions[3]" placement="right" [ngbTooltip]="tooltipContentRef" triggers="manual" (mouseover)="showTooltip(t3)" (mouseout)="closeToolTip(t3)" (mousedown)="closeToolTip(t3)" (dblclick)="edit(t3,content)"></div>
+        <div #t4="ngbTooltip" [hidden]="tBool[4]" id="t4" class="tableOnePosition" (cdkDragStarted)="started($event)" (cdkDragEnded)="ended($event)" cdkDrag cdkDragBoundary=".boundary" [cdkDragFreeDragPosition]="startPositions[4]" placement="right" [ngbTooltip]="tooltipContentRef" triggers="manual" (mouseover)="showTooltip(t4)" (mouseout)="closeToolTip(t4)" (mousedown)="closeToolTip(t4)" (dblclick)="edit(t4,content)"></div>
+        <div #t5="ngbTooltip" [hidden]="tBool[5]" id="t5" class="tableOnePosition" (cdkDragStarted)="started($event)" (cdkDragEnded)="ended($event)" cdkDrag cdkDragBoundary=".boundary" [cdkDragFreeDragPosition]="startPositions[5]" placement="right" [ngbTooltip]="tooltipContentRef" triggers="manual" (mouseover)="showTooltip(t5)" (mouseout)="closeToolTip(t5)" (mousedown)="closeToolTip(t5)" (dblclick)="edit(t5,content)"></div>
+
     </div>
-    
+
 </div>
 
 
 <ng-template #tooltipContentRef>
-    <h5>Test Tooltip</h5>
-    <p>idHtml: {{ currentTable.idHtml }}</p>
+    <h5>Information:</h5>
+    <p>Table number: {{ currentTable.tableNumber }}<br>
+    Table size: {{ currentTable.size }} <br>
+    Static: {{ currentTable.static }}</p>
 </ng-template>
 
 
 <ng-template #content let-modal>
 
-    <!-- modal er en del af ng-template som er root elementet og er sat ved let-modal -->
-    <!-- dismiss(reason: any) => void -->
-    <!-- Dismisses the modal with an optional reason value. -->
-    <!-- The NgbModalRef.result promise will be rejected with the provided value. -->
     <div class="modal-header">
-        <h4 class="modal-title" id="modal-basic-title">Edit table (test)</h4>
+        <h4 class="modal-title" id="modal-basic-title">Add new table</h4>
         <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
             <span aria-hidden="true">&times;</span> <!-- Laver krydset i hjørnet -->
         </button>
@@ -37,33 +35,71 @@
 
 
     <div class="modal-body">
-        <form (ngSubmit)="onSubmit()" #personForm="ngForm">
+        <form (ngSubmit)="onSubmit(tableForm, modal)" #tableForm="ngForm">
 
             <div class="form-group row justify-content-center">
-                <div class="col-6">
-                    <label for="tablenumber">idHtml:</label>
-                    <input required [(ngModel)]="currentTable.idHtml" name="tablenumber" type="text" class="form-control"
-                        id="tablenumber" #name="ngModel">
-                    <!-- <div [hidden]="name.valid || name.pristine" class="alert alert-danger">
-                        Name is required
-                    </div> -->
+                <div class="col-8">
+                    <label for="tablenumber">Table number:</label>
+                    <input type="number" class="form-control"  id="tablenumber"
+                     required
+                     [(ngModel)]="currentTable.tableNumber" name="tableNumber" #tableNumber="ngModel">
+                    <div [hidden]="hideMessage" class="alert alert-danger">
+                        Field is required
+                    </div>
+
+                     <!-- [hidden]="tableNumber.valid || tableNumber.pristine"  -->
+                        
                 </div>
             </div>
 
+            <div class="form-group row justify-content-center">
+                <div class="col-8">
+                    <label for="size">Table size:</label>
+
+                    <select class="form-control" id="size"
+                    required
+                    [(ngModel)]="currentTable.size" name="size">
+                        <option value="2">2</option>
+                        <option value="1">1</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                    </select>
+
+                </div>
+            </div>
+
+            <div class="form-group row justify-content-center">
+                <div class="col-8">
+                    <label for="static">Static:</label>
+
+                    <select required class="form-control" id="static"
+                    required
+                    [(ngModel)]="currentTable.static" name="static">
+                        <option value="true">Yes</option>
+                        <option value="false">No</option>
+                    </select>
+
+                </div>
+            </div>
+
+            <div class="row mt-4 justify-content-center">
+                <button type="submit" class=" btn btn-dark pl-4 pr-4">Submit</button>
+            </div>
 
 
         </form>
     </div>
 
-    <div class="modal-footer">
-        <!-- modal er en del af ng-template som er root elementet og er sat ved let-modal -->
-        <!-- close(result: any) => void -->
-        <!-- Closes the modal with an optional result value -->
-        <!-- The NgbMobalRef.result promise will be resolved with the provided value. -->
-        <button type="button" class="btn btn-outline-dark" (click)="modal.close('Add click')">Add</button>
-    </div>
+    <!-- <div class="modal-footer">
+        <button type="button" class="btn btn-outline-dark" (click)="modal.close('Add Click')">Add</button>
+    </div> -->
 
 </ng-template>
 
 
-    
