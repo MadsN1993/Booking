@@ -3,6 +3,9 @@
     padding-right: 0px;
 }
 
-.clickable {
-    cursor: pointer;
-  }
+.toolbar{
+    background-color: #343A40;
+    /* border-style: solid none solid none; */
+    border-color: #343A40;
+}
+

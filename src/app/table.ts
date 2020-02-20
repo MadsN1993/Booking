@@ -4,6 +4,8 @@ export class Table {
     xRel : number;
     yRel : number;
     tableNumber : number;
+    static : boolean;
+    size : number;
 
 
     constructor(
