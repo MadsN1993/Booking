@@ -17,7 +17,6 @@ export class ReservationComponent implements OnInit  {
   bookings: Booking[] = [];
   booking: Booking;
 
-
   @Output() messageEvent = new EventEmitter<Booking>();
 
   constructor(
@@ -25,22 +24,16 @@ export class ReservationComponent implements OnInit  {
     private modalService : NgbModal
   ) { }
 
-
-  NewBooking() {
-    this.messageEvent.emit();
-  }
-
   OpenBooking(booking: Booking) {
     this.messageEvent.emit(booking);
   }
 
   ngOnInit() {
     this.bookings = this.bookingService.GetBookings();
+    this.bookingService.cast.subscribe(() => this.bookings = this.bookingService.GetBookings());
     console.log("OnInit");
 
   }
-
-
 
 
 

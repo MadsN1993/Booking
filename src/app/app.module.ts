@@ -22,6 +22,7 @@ import { AuthenticationService } from './login/authentication.service';
 import { AuthGuard } from './auth.guard';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DragDropModule } from '@angular/cdk/drag-drop';
+import { BookingsService}  from './home/bookings.service';
 
 
 @NgModule({
@@ -49,7 +50,7 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
     BrowserAnimationsModule,
     DragDropModule
   ],
-  providers: [AuthenticationService, AuthGuard],
+  providers: [AuthenticationService, AuthGuard, BookingsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { BookingsService } from '../bookings.service';
+import { Subject } from 'rxjs';
 
 @Component({
   selector: 'app-search',
@@ -15,13 +17,13 @@ export class SearchComponent implements OnInit {
   toSize = "small";
 
   searchText:string = "";
-  now:boolean = true; 
 
-  constructor() { }
+  constructor(private bookingsService : BookingsService) { }
 
   ngOnInit() {
   }
 
-  
-
+  filter () {
+    this.bookingsService.FilterBookings(this.searchText, this.fromTime, this.toTime);
+  }
 }
