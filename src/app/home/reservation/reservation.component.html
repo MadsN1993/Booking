@@ -1,6 +1,6 @@
 <div class="row">
     <div class="col-9 no-padding">
-        <app-table-overview></app-table-overview>
+        <app-table-overview [bookingHover]="bookingHover" (tableHover)="onTableHover($event)"></app-table-overview>
     </div>
 
     <div class="col fixedHeightContainer no-padding">
@@ -17,7 +17,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr (click)="open(booking, content)" class="clickable" *ngFor="let booking of bookings">
+                    <tr (click)="open(booking, content)" (mouseover)="mouseover(booking, $event)" (mouseout)="mouseout($event)" class="clickable" *ngFor="let booking of bookings" id="r{{booking.TableNumber}}">
                         <td>{{ booking.Name }}</td>
                         <td>{{ booking.Duration }}</td>
                         <td>{{ booking.Guests }}</td>

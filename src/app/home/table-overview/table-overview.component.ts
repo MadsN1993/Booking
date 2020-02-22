@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit, OnChanges, SimpleChange, Output, EventEmitter } from '@angular/core';
 import { Table } from '../../table'
 import { TableService } from '../../setup/table.service'
 
@@ -7,8 +7,10 @@ import { TableService } from '../../setup/table.service'
   templateUrl: './table-overview.component.html',
   styleUrls: ['./table-overview.component.css']
 })
-export class TableOverviewComponent implements OnInit {
+export class TableOverviewComponent implements OnInit, OnChanges {
 
+  @Output() tableHover = new EventEmitter<number>();
+  @Input() bookingHover: Table;
   tables: Table[];
 
   containerTop: number;
@@ -20,7 +22,38 @@ export class TableOverviewComponent implements OnInit {
     private tableService: TableService
   ) { }
 
+  ngOnChanges(changes: { [propKey: string]: SimpleChange }) {
+   
+    if (changes.bookingHover.currentValue === null) {
+      
+      if (this.tables !== undefined && this.tables.length > 0) {
+        this.tables.forEach(table => {
+
+          if (table.tableNumber === changes.bookingHover.previousValue.TableNumber) {
+            document.getElementById(table.idHtml).style.backgroundColor = "#BA8B67";
+          }
+        });
+      }
+    }
+    else {
+      
+      if (this.tables !== undefined && this.tables.length > 0) {
+        this.tables.forEach(table => {
+
+          if (table.tableNumber === changes.bookingHover.currentValue.TableNumber) {
+            document.getElementById(table.idHtml).style.backgroundColor = "#E0C3AC";
+          }
+        });
+      }
+    }
+  }
+
+
+
+
   ngOnInit() {
+
+    console.log("ngOnInit called");
 
     if (this.tableService.getTables().length > 0) {
       this.tables = this.tableService.getTables();
@@ -39,7 +72,7 @@ export class TableOverviewComponent implements OnInit {
     }
   }
 
-  createTableElement(table : Table) {
+  createTableElement(table: Table) {
     console.log("createTableElement called");
     let yRel = table.yRel;
     let xRel = table.xRel;
@@ -57,9 +90,14 @@ export class TableOverviewComponent implements OnInit {
     div.style.boxSizing = "border-box"
     div.style.textAlign = "center";
     div.style.verticalAlign = "middle";
-    div.style.lineHeight = (tableWidth-2) + "px"; // 2 er border-width
-    div.style.fontSize = (tableWidth/2) + "px"; // 1.3 er en delvist random variable
-    div.className = "tablee";
+    div.style.lineHeight = (tableWidth - 2) + "px"; // 2 er border-width
+    div.style.fontSize = (tableWidth / 2) + "px"; // 1.3 er en delvist random variable
+    div.style.userSelect = "none";
+    div.setAttribute("id", table.idHtml);
+
+    div.addEventListener("mouseover", this.mouseover.bind(this))
+    div.addEventListener("mouseout", this.mouseout.bind(this))
+
 
     div.innerText = table.tableNumber.toString();
     let container = document.getElementById("container");
@@ -67,5 +105,12 @@ export class TableOverviewComponent implements OnInit {
     container.appendChild(div);
   }
 
+  mouseover(e){
+    this.tableHover.emit(Number(e.toElement.innerText));
+  }
+
+  mouseout(e){
+    this.tableHover.emit(null);
+  }
 
 }

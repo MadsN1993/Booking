@@ -11,18 +11,18 @@ import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
   styleUrls: ['./reservation.component.css']
 })
 
-export class ReservationComponent implements OnInit  {
-  
-  test : string = "Fra reservationComponent"
+export class ReservationComponent implements OnInit {
+
+  previousTableHover: number;
   bookings: Booking[] = [];
   booking: Booking;
-
+  bookingHover: Booking;
 
   @Output() messageEvent = new EventEmitter<Booking>();
 
   constructor(
     private bookingService: BookingsService,
-    private modalService : NgbModal
+    private modalService: NgbModal
   ) { }
 
 
@@ -37,19 +37,61 @@ export class ReservationComponent implements OnInit  {
   ngOnInit() {
     this.bookings = this.bookingService.GetBookings();
     console.log("OnInit");
-
   }
 
+  mouseover(booking, e) {
+    let trId = e.toElement.parentElement.id;
+    document.getElementById(trId).style.backgroundColor = "#23272B";
+
+    this.bookingHover = booking;
+  }
+
+  mouseout(e) {
+    let trId = e.fromElement.parentElement.id;
+    document.getElementById(trId).style.backgroundColor = "#343A40";
+
+    this.bookingHover = null;
+  }
+
+  onTableHover(tableNumber: number) {
+
+    if ((this.bookings !== undefined && this.bookings.length > 0)) {
+      if (tableNumber === null) {
+
+        this.bookings.forEach(booking => {
+          if (booking.TableNumber === this.previousTableHover) {
+
+            document.getElementById(`r${this.previousTableHover}`).style.backgroundColor = "#343A40";
+
+          }
+
+        });
+
+
+        // Sæt til rigtige farve den som har forkert farve
+      }
+      else {
+
+        this.bookings.forEach(booking => {
+
+          if (booking.TableNumber === tableNumber) {
+            this.previousTableHover = tableNumber;
+            document.getElementById(`r${tableNumber}`).style.backgroundColor = "#23272B";
+          }
+
+        });
+      }
+
+    }
 
 
 
-
-
+  }
 
   openN(content2) {
     this.booking = new Booking();
     this.modalService.open(content2, { ariaLabelledBy: 'modal-basic-title', size: "lg" }).result.then((result) => {
-      
+
       switch (result) {
         case "Cancel": {
           console.log("Cancel")

@@ -16,9 +16,9 @@
     cursor: pointer;
   }
 
-tr:hover.clickable {
+/* tr:hover.clickable {
     background-color: #23272B;
-}
+} */
   
 .no-padding{
   padding-left: 0px;

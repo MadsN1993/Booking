@@ -11,9 +11,5 @@ export class ToolbarComponent implements OnInit {
 
   ngOnInit() {
   }
-
-  alert1(){
-    alert("test");
-  }
-
+  
 }
