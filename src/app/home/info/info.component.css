@@ -1,0 +1,10 @@
+.borderInfo{
+    border-style: none solid solid none;
+    border-width: 2px; 
+    border-color: #343A40;
+}
+
+.borderSearch{
+    border-style: none none solid none; 
+    border-width: 2px;
+}
