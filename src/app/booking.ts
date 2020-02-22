@@ -9,6 +9,7 @@ export class Booking {
     Duration: number;
     Outside: boolean;
     TableNumber: number;
+    Time;
 
     constructor(){}
 

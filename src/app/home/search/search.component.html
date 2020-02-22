@@ -10,13 +10,7 @@
         </li>
     </ul>
     <div>
-        <input type="checkbox" id=nowFilter>
-        <label for="nowFilter">
-            Now
-        </label>
-    </div>
-    <div>
-        <input class="form-control" type="textfield" id=textFilter placeholder="Search for guests" style="margin-bottom: 8px;" [(ngModel)] ="searchText">
+        <input class="form-control" type="textfield" id=textFilter placeholder="Search for guests" style="margin-bottom: 8px;" [(ngModel)] ="searchText" (change) = "filter()">
     </div>
 </div>
 

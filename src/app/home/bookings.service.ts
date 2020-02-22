@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Booking } from '../booking';
 import { NgbPopoverWindow } from '@ng-bootstrap/ng-bootstrap/popover/popover';
+import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -8,31 +9,50 @@ import { NgbPopoverWindow } from '@ng-bootstrap/ng-bootstrap/popover/popover';
 export class BookingsService {
 
   bookings : Booking[] = [
-    { Id: 1, Name: "testName", Telephone: 11111111, Email: "tt@hotmail.com", Guests: 1, Date: new Date(1988, 3, 15), Duration: 60, Outside:false, TableNumber:1 },
-    { Id: 2, Name: "testName", Telephone: 22222222, Email: "tt@hotmail.com", Guests: 2, Date: Date.now(), Duration: 60, Outside:true, TableNumber:2 },
-    { Id: 3, Name: "testName", Telephone: 33333333, Email: "tt@hotmail.com", Guests: 3, Date: Date.now(), Duration: 60, Outside:false, TableNumber:3 },
-    { Id: 4, Name: "testName", Telephone: 44444444, Email: "tt@hotmail.com", Guests: 4, Date: Date.now(), Duration: 60, Outside:false, TableNumber:4 },
-    { Id: 5, Name: "testName", Telephone: 55555555, Email: "tt@hotmail.com", Guests: 5, Date: Date.now(), Duration: 60, Outside:false, TableNumber:5 },
-    { Id: 6, Name: "testName", Telephone: 66666666, Email: "tt@hotmail.com", Guests: 6, Date: Date.now(), Duration: 60, Outside:false, TableNumber:6 },
-    { Id: 7, Name: "testName", Telephone: 77777777, Email: "tt@hotmail.com", Guests: 7, Date: Date.now(), Duration: 60, Outside:false, TableNumber:7 },
-    { Id: 8, Name: "testName", Telephone: 88888888, Email: "tt@hotmail.com", Guests: 8, Date: Date(), Duration: 60, Outside:false, TableNumber:8 },
-    { Id: 9, Name: "testName", Telephone: 99999999, Email: "tt@hotmail.com", Guests: 9, Date: Date.now(), Duration: 60, Outside:false, TableNumber:9 },
-    { Id: 10, Name: "testName", Telephone: 10101010, Email: "tt@hotmail.com", Guests: 10, Date: Date.now(), Duration: 60, Outside:true, TableNumber:10 },
-    { Id: 11, Name: "testName", Telephone: 11111111, Email: "tt@hotmail.com", Guests: 11, Date: Date.now(), Duration: 60, Outside:true, TableNumber:11 },
-    { Id: 12, Name: "testName", Telephone: 12121212, Email: "tt@hotmail.com", Guests: 12, Date: Date.now(), Duration: 60, Outside:true, TableNumber:12 },
-    { Id: 13, Name: "testName", Telephone: 13131313, Email: "tt@hotmail.com", Guests: 13, Date: Date.now(), Duration: 60, Outside:true, TableNumber:13 },
-    { Id: 14, Name: "testName", Telephone: 14141414, Email: "tt@hotmail.com", Guests: 14, Date: Date.now(), Duration: 60, Outside:true, TableNumber:14 },
-    { Id: 15, Name: "testName", Telephone: 15151515, Email: "tt@hotmail.com", Guests: 15, Date: Date.now(), Duration: 60, Outside:true, TableNumber:15 }
+    { Id: 1, Name: "Adam", Telephone: 11111111, Email: "tt@hotmail.com", Guests: 2, Date: new Date(1988, 3, 15), Duration: 60, Outside:false, TableNumber:1, Time: {hour: 10, minute: 30} },
+    { Id: 2, Name: "Anders", Telephone: 22222222, Email: "tt@hotmail.com", Guests: 2, Date: Date.now(), Duration: 60, Outside:true, TableNumber:2, Time: {hour: 10, minute: 30} },
+    { Id: 3, Name: "Morten", Telephone: 33333333, Email: "tt@hotmail.com", Guests: 4, Date: Date.now(), Duration: 60, Outside:false, TableNumber:3, Time: {hour: 10, minute: 30} },
+    { Id: 4, Name: "Kristoffer", Telephone: 44444444, Email: "tt@hotmail.com", Guests: 2, Date: Date.now(), Duration: 60, Outside:false, TableNumber:4, Time: {hour: 10, minute: 30} },
+    { Id: 5, Name: "Line", Telephone: 55555555, Email: "tt@hotmail.com", Guests: 5, Date: Date.now(), Duration: 60, Outside:false, TableNumber:5, Time: {hour: 10, minute: 30} },
+    { Id: 6, Name: "Christian", Telephone: 66666666, Email: "tt@hotmail.com", Guests: 4, Date: Date.now(), Duration: 60, Outside:false, TableNumber:6, Time: {hour: 10, minute: 30} },
+    { Id: 7, Name: "Mads", Telephone: 77777777, Email: "tt@hotmail.com", Guests: 2, Date: Date.now(), Duration: 60, Outside:false, TableNumber:7, Time: {hour: 10, minute: 30} },
+    { Id: 8, Name: "John", Telephone: 88888888, Email: "tt@hotmail.com", Guests: 2, Date: Date(), Duration: 60, Outside:false, TableNumber:8, Time: {hour: 10, minute: 30} },
+    { Id: 9, Name: "Ingrid", Telephone: 99999999, Email: "tt@hotmail.com", Guests: 4, Date: Date.now(), Duration: 60, Outside:false, TableNumber:9, Time: {hour: 10, minute: 30} },
+    { Id: 10, Name: "Ole", Telephone: 10101010, Email: "tt@hotmail.com", Guests: 3, Date: Date.now(), Duration: 60, Outside:true, TableNumber:10, Time: {hour: 10, minute: 30} },
+    { Id: 11, Name: "Sebastian", Telephone: 11111111, Email: "tt@hotmail.com", Guests: 2, Date: Date.now(), Duration: 60, Outside:true, TableNumber:11, Time: {hour: 10, minute: 30} },
+    { Id: 12, Name: "Jacob", Telephone: 12121212, Email: "tt@hotmail.com", Guests: 1, Date: Date.now(), Duration: 60, Outside:true, TableNumber:12, Time: {hour: 10, minute: 30} },
+    { Id: 13, Name: "Jakob", Telephone: 13131313, Email: "tt@hotmail.com", Guests: 4, Date: Date.now(), Duration: 60, Outside:true, TableNumber:13, Time: {hour: 10, minute: 30} },
+    { Id: 14, Name: "Kim", Telephone: 14141414, Email: "tt@hotmail.com", Guests: 3, Date: Date.now(), Duration: 60, Outside:true, TableNumber:14, Time: {hour: 10, minute: 30} },
+    { Id: 15, Name: "Sanne", Telephone: 15151515, Email: "tt@hotmail.com", Guests: 6, Date: Date.now(), Duration: 60, Outside:true, TableNumber:15, Time: {hour: 10, minute: 30} }
   ]
 
-  
+
+  private changes = new BehaviorSubject<boolean>(false);
+  cast = this.changes.asObservable(); 
+
+  currentSearchText : string = "";
+  filteredBookings : Booking[] = [];
+
   DeleteBooking(booking: Booking){
     const index = this.bookings.findIndex(b => b.Id == booking.Id);
     this.bookings.splice(index,1);
 
     this.bookings.forEach(b => console.log(b.Id));
     console.log("");
+    this.FilterBookings(this.currentSearchText, 0, 0);
+    this.changes.next(true);
+  }
 
+  FilterBookings(searchText : string, fromTime, ToTime) {
+    this.currentSearchText = searchText;
+    var filtered : Booking[] = [];
+    this.bookings.forEach(function (booking) {
+      if (booking.Name.includes(searchText)) {  
+        filtered.push(booking);
+      }
+    });
+    this.filteredBookings = filtered;
+    this.changes.next(true);
   }
 
   EditBooking(booking: Booking){
@@ -41,6 +61,7 @@ export class BookingsService {
 
     this.bookings.forEach(b => console.log(b.Id));
     console.log("");
+    this.changes.next(true);
   }
 
   GetId() : number {
@@ -56,13 +77,18 @@ export class BookingsService {
 
     this.bookings.forEach(b => console.log(b.Id));
     console.log("");
-
+    this.FilterBookings(this.currentSearchText, 0, 0);
+    this.changes.next(true);
   }
 
   GetBookings(): Booking[]{
+    return this.filteredBookings;
+  }
+
+  GetAllBookings(): Booking[]{
     return this.bookings;
   }
 
-  constructor() { }
+  constructor() { this.filteredBookings = this.bookings}
 }
 
