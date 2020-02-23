@@ -2,11 +2,11 @@
     <ul>
         <li>
             <span>From:</span>
-            <ngb-timepicker [(ngModel)] = "fromTime" [spinners]="fromSpinners" [size]="fromSize"></ngb-timepicker>
+            <ngb-timepicker [(ngModel)] = "fromTime" [spinners]="fromSpinners" [size]="fromSize" (change) = "filter()"></ngb-timepicker>
         </li>
         <li>
             <span>To:</span>
-            <ngb-timepicker [(ngModel)] = "toTime" [spinners]="toSpinners" [size]="toSize"></ngb-timepicker>   
+            <ngb-timepicker [(ngModel)] = "toTime" [spinners]="toSpinners" [size]="toSize" (change) = "filter()"></ngb-timepicker>   
         </li>
     </ul>
     <div>
