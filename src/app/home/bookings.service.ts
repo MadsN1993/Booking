@@ -37,9 +37,9 @@ export class BookingsService {
     const index = this.bookings.findIndex(b => b.Id == booking.Id);
     this.bookings.splice(index,1);
 
-    this.bookings.forEach(b => console.log(b.Id));
-    console.log("");
-    this.FilterBookings(this.currentSearchText, 0, 0);
+    // this.bookings.forEach(b => console.log(b.Id));
+    // console.log("");
+    // this.FilterBookings(this.currentSearchText, 0, 0);
     this.changes.next(true);
   }
 
@@ -80,9 +80,9 @@ export class BookingsService {
   AddBooking(booking: Booking){
     this.bookings.push(booking);
 
-    this.bookings.forEach(b => console.log(b.Id));
-    console.log("");
-    this.FilterBookings(this.currentSearchText, 0, 0);
+    // this.bookings.forEach(b => console.log(b.Id));
+    // console.log("");
+    // this.FilterBookings(this.currentSearchText, 0, 0);
     this.changes.next(true);
   }
 

@@ -9,10 +9,10 @@ import { Subject } from 'rxjs';
 })
 export class SearchComponent implements OnInit {
 
-  fromTime = {hour: 13, minute: 30};
+  fromTime = {hour: 9, minute: 0};
   fromSpinners = false;
   fromSize = "small";
-  toTime = {hour: 14, minute: 30};
+  toTime = {hour: 22, minute: 0};
   toSpinners = false;
   toSize = "small";
 
