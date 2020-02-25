@@ -5,6 +5,7 @@ import { SetupComponent } from './setup/setup/setup.component'
 import { LoginComponent } from './login/login/login.component';
 import { RegisterComponent } from './login/register/register.component';
 import { AuthGuard } from './auth.guard';
+import { AdminGuardGuard } from './admin-guard.guard';
 
 const routes: Routes = [
   { 
@@ -15,7 +16,7 @@ const routes: Routes = [
   { 
     path: 'setup', 
     component: SetupComponent,
-    canActivate : [AuthGuard] 
+    canActivate : [AuthGuard, AdminGuardGuard] 
   },
   { path: 'login', 
     component: LoginComponent,
