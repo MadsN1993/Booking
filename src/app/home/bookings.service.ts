@@ -39,7 +39,7 @@ export class BookingsService {
 
     // this.bookings.forEach(b => console.log(b.Id));
     // console.log("");
-    // this.FilterBookings(this.currentSearchText, 0, 0);
+    this.FilterBookings(this.currentSearchText, 0, 0);
     this.changes.next(true);
   }
 
@@ -82,7 +82,7 @@ export class BookingsService {
 
     // this.bookings.forEach(b => console.log(b.Id));
     // console.log("");
-    // this.FilterBookings(this.currentSearchText, 0, 0);
+    this.FilterBookings(this.currentSearchText, 0, 0);
     this.changes.next(true);
   }
 
