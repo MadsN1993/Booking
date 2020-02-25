@@ -31,6 +31,8 @@ export class BookingsService {
   cast = this.changes.asObservable(); 
 
   currentSearchText : string = "";
+  fromTime = {hour: 0, minute: 0};
+  ToTime = {hour: 23, minute: 59};
   filteredBookings : Booking[] = [];
 
   DeleteBooking(booking: Booking){
@@ -39,12 +41,14 @@ export class BookingsService {
 
     // this.bookings.forEach(b => console.log(b.Id));
     // console.log("");
-    this.FilterBookings(this.currentSearchText, 0, 0);
+    this.FilterBookings(this.currentSearchText, this.fromTime, this.ToTime);
     this.changes.next(true);
   }
 
   FilterBookings(searchText : string, fromTime, ToTime) {
     this.currentSearchText = searchText;
+    this.fromTime = fromTime;
+    this.ToTime = ToTime;
     var filtered : Booking[] = [];
     this.bookings.forEach(function (booking) {
       if (booking.Name.includes(searchText)) {
@@ -82,7 +86,7 @@ export class BookingsService {
 
     // this.bookings.forEach(b => console.log(b.Id));
     // console.log("");
-    this.FilterBookings(this.currentSearchText, 0, 0);
+    this.FilterBookings(this.currentSearchText, this.fromTime, this.ToTime);
     this.changes.next(true);
   }
 
