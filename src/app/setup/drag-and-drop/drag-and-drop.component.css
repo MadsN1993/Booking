@@ -1,11 +1,6 @@
-.boundary{
-
-}
-
 .vl {
     height: 100%;
     position: absolute;
-    border-left-color: blue;
   }
 
 .no-padding{
@@ -28,9 +23,3 @@
     vertical-align: middle;
     user-select: none;
 }
-
-
-
-.red {
-    border-left: 5px solid #a94442; /* red */
-  }

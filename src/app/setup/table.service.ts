@@ -8,6 +8,8 @@ export class TableService {
 
   tables : Table[] = [];
 
+  constructor() { }
+
   addTable(table : Table){
     this.tables.push(table);
   }
@@ -15,7 +17,18 @@ export class TableService {
   getTables(){
     return this.tables;
   }
-  constructor() { }
+
+  editTable(table : Table){
+    const index = this.tables.findIndex(t => t.idHtml == table.idHtml);
+    this.tables[index] = table;
+  }
+
+  deleteTable(id: string){
+    const index = this.tables.findIndex(t => t.idHtml === id);
+    this.tables.splice(index,1);
+  }
+
+
 }
 
 
